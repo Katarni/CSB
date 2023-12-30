@@ -10,4 +10,5 @@ add_executable(RelativistycDynamic main.cpp
         Vector3.h
         Particle.cpp
         Particle.h
+        includes.h
 )

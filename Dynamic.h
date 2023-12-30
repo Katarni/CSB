@@ -4,17 +4,26 @@
 
 #pragma once
 
-#include <vector>
-#include "Vector3.h"
 #include "Particle.h"
 
 
 class Dynamic {
  public:
+  Dynamic() = default;
+  Dynamic(const std::vector<Particle>& particles): particles_(particles) {}
+  Dynamic(Vector3 force, const std::vector<Particle>& particles): force_(force), particles_(particles) {}
+
   void updateParticles(double d_t);
 
-  Vector3 calculateForce(Particle first_particle, Particle second_particle);
+  void setForce(Vector3 force) {
+    force_.setP1(force.getP1());
+    force_.setP2(force.getP2());
+    force_.setP3(force.getP3());
+  }
 
  private:
+  Vector3 force_;
   std::vector<Particle> particles_;
+
+  Vector3 calculateForce(Particle first_particle, Particle second_particle);
 };
