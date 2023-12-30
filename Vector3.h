@@ -45,6 +45,8 @@ class Vector3 {
     p3_ = p3;
   }
 
+  static Vector3 fromStdString(const std::string& string);
+
  private:
   double p1_, p2_, p3_;
 };
