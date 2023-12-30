@@ -4,13 +4,13 @@
 
 #include "Dynamic.h"
 
-void Dynamic::updateParticles(long double d_t) {
+void Dynamic::updateParticles(double d_t) {
   std::vector<Vector3> forces(particles_.size());
   for (int i = 0; i < particles_.size(); ++i) {
     for (int j = 0; j < particles_.size(); ++j) {
       if (i == j) continue;
 
-      // рассчитываем силу действия каждой частицы
+      forces[j] = calculateForce(particles_[i], particles_[j]);
     }
 
     // считаем сумму сил
@@ -23,4 +23,8 @@ void Dynamic::updateParticles(long double d_t) {
   for (int i = 0; i < particles_.size(); ++i) {
     // пересчитываем позицию
   }
+}
+
+Vector3 Dynamic::calculateForce(Particle target_particle, Particle impacting_particle) {
+  return Vector3();
 }

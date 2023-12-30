@@ -11,7 +11,9 @@
 
 class Dynamic {
  public:
-  void updateParticles(long double d_t);
+  void updateParticles(double d_t);
+
+  Vector3 calculateForce(Particle first_particle, Particle second_particle);
 
  private:
   std::vector<Particle> particles_;
