@@ -5,6 +5,7 @@
 #pragma once
 #include "Vector3.h"
 
+
 class Particle {
  public:
   Particle(Vector3& vel, Vector3& coo, double mass, double I):
@@ -13,6 +14,8 @@ class Particle {
   Vector3 updateVelocity(Vector3 Force, double d_t);
 
   void updateCoordinates(Vector3 new_coordinates);
+
+  static Particle fromStdString(const std::string& string);
 
  private:
   Vector3 velocity_;

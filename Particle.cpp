@@ -13,3 +13,7 @@ void Particle::updateCoordinates(Vector3 new_coordinates) {
   this->coordinates_.setP2(new_coordinates.getP2());
   this->coordinates_.setP3(new_coordinates.getP3());
 }
+
+Particle Particle::fromStdString(const std::string &string) {
+
+}
