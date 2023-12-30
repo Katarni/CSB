@@ -22,7 +22,7 @@ class Dynamic {
 
   friend std::istream& operator>>(std::istream& in, std::pair<Dynamic&, bool> dynamic);
 
-  void addParticle(Particle particle) {
+  void push_back(Particle particle) {
     particles_.push_back(particle);
   }
 

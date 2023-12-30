@@ -28,3 +28,18 @@ void Dynamic::updateParticles(double d_t) {
 Vector3 Dynamic::calculateForce(Particle target_particle, Particle impacting_particle) {
   return Vector3();
 }
+
+std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {
+  if (dynamic.second) {
+    std::string force;
+    getline(in, force);
+    dynamic.first.setForce(Vector3::fromStdString(force));
+  }
+
+  std::string line;
+  while (getline(in, line)) {
+    dynamic.first.push_back(Particle::fromStdString(line));
+  }
+
+  return in;
+}

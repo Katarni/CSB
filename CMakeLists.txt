@@ -11,6 +11,4 @@ add_executable(RelativistycDynamic main.cpp
         Particle.cpp
         Particle.h
         includes.h
-        ReadDynamic.cpp
-        WriteDynamic.cpp
 )
