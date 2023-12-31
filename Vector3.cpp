@@ -40,3 +40,8 @@ Vector3 Vector3::fromStdString(const std::string& string) {
   vector3.setP3(param);
   return vector3;
 }
+
+std::ostream &operator<<(std::ostream &out, Vector3 vec) {
+  out << "{" << vec.p1_ << "; " << vec.p2_ << "; " << vec.p3_ << "}";
+  return out;
+}

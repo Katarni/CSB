@@ -47,6 +47,16 @@ class Vector3 {
 
   static Vector3 fromStdString(const std::string& string);
 
+  friend bool operator==(Vector3 vec1, Vector3 vec2) {
+    return vec1.p1_ == vec2.p1_ && vec1.p2_ == vec2.p2_ && vec1.p3_ == vec2.p3_;
+  }
+
+  friend bool operator!=(Vector3 vec1, Vector3 vec2) {
+    return !(vec1 == vec2);
+  }
+
+  friend std::ostream& operator<<(std::ostream& out, Vector3 vec);
+
  private:
   double p1_, p2_, p3_;
 };
