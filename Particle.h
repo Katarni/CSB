@@ -17,6 +17,8 @@ class Particle {
 
   static Particle fromStdString(const std::string& string);
 
+  friend std::ostream& operator<<(std::ostream& out, Particle particle);
+
  private:
   Vector3 velocity_;
   Vector3 coordinates_;

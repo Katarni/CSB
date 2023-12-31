@@ -77,3 +77,10 @@ Particle Particle::fromStdString(const std::string &string) {
 
   return Particle(vel, coo, mass, I);
 }
+
+std::ostream &operator<<(std::ostream &out, Particle particle) {
+  out << std::fixed << std::setprecision(5);
+  out << "Velocity: " << particle.velocity_ << " Coordinates: " << particle.coordinates_;
+  out << " Mass: " << particle.mass_ << " Isospin: " << particle.I_;
+  return out;
+}
