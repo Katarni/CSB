@@ -43,3 +43,14 @@ std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {
 
   return in;
 }
+
+std::ostream &operator<<(std::ostream &out, const std::pair<Dynamic, bool>& dynamic) {
+  if (dynamic.first.force_ != Vector3(0, 0, 0)) {
+    out << "Force: " << dynamic.first.force_ << std::endl;
+  }
+  out << "Particles:" << std::endl;
+  for (auto particle : dynamic.first.particles_) {
+    out << particle << std::endl;
+  }
+  return out;
+}

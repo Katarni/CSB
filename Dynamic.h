@@ -21,6 +21,7 @@ class Dynamic {
   }
 
   friend std::istream& operator>>(std::istream& in, std::pair<Dynamic&, bool> dynamic);
+  friend std::ostream& operator<<(std::ostream& out, const std::pair<Dynamic, bool>& dynamic);
 
   void push_back(Particle particle) {
     particles_.push_back(particle);
