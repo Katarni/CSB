@@ -1,5 +1,5 @@
 //
-// Created by Тимур Ахметзянов on 21.10.2023.
+// Created by Timur Akhmetzjanov on 21.10.2023.
 //
 
 #include "Particle.h"
