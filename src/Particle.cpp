@@ -4,7 +4,7 @@
 
 #include "Particle.h"
 
-Vector3 Particle::updateVelocity(Vector3 Force, double d_t) {
+void Particle::updateVelocity(Vector3 Force, double d_t) {
   // обновление скорости одной частицы
 }
 

@@ -11,7 +11,7 @@ class Particle {
   Particle(Vector3& vel, Vector3& coo, double mass, double I):
           velocity_(vel), coordinates_(coo), mass_(mass), I_(I) {};
 
-  Vector3 updateVelocity(Vector3 Force, double d_t);
+  void updateVelocity(Vector3 Force, double d_t);
 
   void updateCoordinates(Vector3 new_coordinates);
 
