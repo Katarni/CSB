@@ -26,7 +26,7 @@ void Dynamic::updateParticles(double d_t) {
 }
 
 Vector3 Dynamic::calculateForce(Particle target_particle, Particle impacting_particle) {
-  return Vector3();
+  return {0, 0, 0};
 }
 
 std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {

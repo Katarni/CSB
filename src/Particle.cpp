@@ -75,7 +75,7 @@ Particle Particle::fromStdString(const std::string &string) {
   }
   I /= std::pow(10, cnt_dots);
 
-  return Particle(vel, coo, mass, I);
+  return {vel, coo, mass, I};
 }
 
 std::ostream &operator<<(std::ostream &out, Particle particle) {
