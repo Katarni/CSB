@@ -1,5 +1,8 @@
-#include "../src/Dynamic.h"
+#include "../includes/Dynamic.h"
 
 int main() {
-  return 0;
+  std::function<int(int, int)> f = [](int n, int m){ std::cout << n; return m; };
+
+  int n = 1, m = 2;
+  std::cout << f(n, m);
 }
