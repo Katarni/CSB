@@ -18,7 +18,7 @@ class Dynamic {
     force_.setP1(force.getP1());
     force_.setP2(force.getP2());
     force_.setP3(force.getP3());
-
+  }
 
   void push_back(Particle particle) {
     particles_.push_back(particle);
