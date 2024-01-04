@@ -13,6 +13,10 @@ class Particle {
   Particle(Vector3& vel, Vector3& coo, double mass, double I):
           velocity_(vel), coordinates_(coo), mass_(mass), I_(I) {}
 
+  Vector3 &getVelocity() {
+    return velocity_;
+  }
+
   const Vector3 &getVelocity() const {
     return velocity_;
   }
@@ -21,6 +25,10 @@ class Particle {
     velocity_.setP1(velocity.getP1());
     velocity_.setP2(velocity.getP2());
     velocity_.setP3(velocity.getP3());
+  }
+
+  Vector3 &getCoordinates() {
+    return coordinates_;
   }
 
   const Vector3 &getCoordinates() const {

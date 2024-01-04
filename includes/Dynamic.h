@@ -35,6 +35,16 @@ class Dynamic {
 
       forces[i] = particle_force;
     }
+
+    for (int i = 0; i < particles_.size(); ++i) {
+      Vector3 new_vel = (forces[i] - particles_[i].getVelocity()*(forces[i]*particles_[i].getVelocity()))
+                                  * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity()) / (particles_[i].getMass() * kLightSpeed);
+      particles_[i].setVelocity(new_vel);
+
+      particles_[i].setCoordinates({particles_[i].getCoordinates().getP1() + particles_[i].getVelocity().getP1()*d_t,
+                                    particles_[i].getCoordinates().getP2() + particles_[i].getVelocity().getP2()*d_t,
+                                    particles_[i].getCoordinates().getP3() + particles_[i].getVelocity().getP3()*d_t});
+    }
   }
 
   void setForce(Vector3 force) {
