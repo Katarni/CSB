@@ -28,7 +28,7 @@ class Dynamic {
         particles_forces_array[j] = calculateForce_(particles_[i], particles_[j]);
       }
 
-      Vector3 particle_force(0, 0, 0);
+      Vector3 particle_force = force_;
       for (const auto& force : particles_forces_array) {
         particle_force += force;
       }
@@ -38,7 +38,8 @@ class Dynamic {
 
     for (int i = 0; i < particles_.size(); ++i) {
       Vector3 new_vel = (forces[i] - particles_[i].getVelocity()*(forces[i]*particles_[i].getVelocity()))
-                                  * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity()) / (particles_[i].getMass() * kLightSpeed);
+                                  * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity())
+                                  / (particles_[i].getMass() * kLightSpeed);
       particles_[i].setVelocity(new_vel);
 
       particles_[i].setCoordinates({particles_[i].getCoordinates().getP1() + particles_[i].getVelocity().getP1()*d_t,
