@@ -18,9 +18,7 @@ class Dynamic {
     force_.setP1(force.getP1());
     force_.setP2(force.getP2());
     force_.setP3(force.getP3());
-  }
 
-  friend std::istream& operator>>(std::istream& in, std::pair<Dynamic&, bool> dynamic);
 
   void push_back(Particle particle) {
     particles_.push_back(particle);

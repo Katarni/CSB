@@ -24,18 +24,3 @@ void Dynamic::updateParticles(double d_t) {
     // пересчитываем позицию
   }
 }
-
-std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {
-  if (dynamic.second) {
-    std::string force;
-    getline(in, force);
-    dynamic.first.setForce(Vector3::fromStdString(force));
-  }
-
-  std::string line;
-  while (getline(in, line)) {
-    dynamic.first.push_back(Particle::fromStdString(line));
-  }
-
-  return in;
-}
