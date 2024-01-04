@@ -6,6 +6,7 @@
 
 #include "headers.h"
 
+
 class Vector3 {
  public:
   Vector3(): p1_(0), p2_(0), p3_(0) {};

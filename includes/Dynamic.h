@@ -3,6 +3,7 @@
 //
 
 #pragma once
+
 #include "Particle.h"
 
 
@@ -42,20 +43,12 @@ class Dynamic {
     force_.setP3(force.getP3());
   }
 
-  void push_back(Particle particle) {
-    particles_.push_back(particle);
-  }
-
   const Vector3 &getForce() const {
     return force_;
   }
 
   const std::vector<Particle> &getParticles() const {
     return particles_;
-  }
-
-  void setParticles(const std::vector<Particle> &particles) {
-    particles_ = particles;
   }
 
  protected:
