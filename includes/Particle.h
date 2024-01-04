@@ -8,6 +8,7 @@
 
 class Particle {
  public:
+  Particle(): velocity_(Vector3()), coordinates_(Vector3()), mass_(0), I_(0) {}
   Particle(Vector3& vel, Vector3& coo, double mass, double I):
           velocity_(vel), coordinates_(coo), mass_(mass), I_(I) {}
 
