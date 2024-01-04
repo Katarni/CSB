@@ -4,11 +4,15 @@ project(RelativistycDynamic)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(RelativistycDynamic tests/main.cpp
-        src/Dynamic.cpp
-        src/Dynamic.h
-        src/Vector3.cpp
-        src/Vector3.h
-        src/Particle.cpp
-        src/Particle.h
-        src/includes.h
+        includes/Dynamic.cpp
+        includes/Dynamic.h
+        includes/Vector3.cpp
+        includes/Vector3.h
+        includes/Particle.cpp
+        includes/Particle.h
+        includes/headers.h
+        includes/Write.cpp
+        includes/Write.h
+        includes/Read.cpp
+        includes/Read.h
 )
