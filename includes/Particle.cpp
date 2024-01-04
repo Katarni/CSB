@@ -1,18 +1,8 @@
 //
-// Created by Timur Akhmetzjanov on 21.10.2023.
+// Created by Тимур Ахметзянов on 21.10.2023.
 //
 
 #include "Particle.h"
-
-void Particle::updateVelocity(Vector3 Force, double d_t) {
-  // обновление скорости одной частицы
-}
-
-void Particle::updateCoordinates(Vector3 new_coordinates) {
-  this->coordinates_.setP1(new_coordinates.getP1());
-  this->coordinates_.setP2(new_coordinates.getP2());
-  this->coordinates_.setP3(new_coordinates.getP3());
-}
 
 Particle Particle::fromStdString(const std::string &string) {
   std::string part;
@@ -76,11 +66,4 @@ Particle Particle::fromStdString(const std::string &string) {
   I /= std::pow(10, cnt_dots);
 
   return {vel, coo, mass, I};
-}
-
-std::ostream &operator<<(std::ostream &out, Particle particle) {
-  out << std::fixed << std::setprecision(5);
-  out << "Velocity: " << particle.velocity_ << " Coordinates: " << particle.coordinates_;
-  out << " Mass: " << particle.mass_ << " Isospin: " << particle.I_;
-  return out;
 }
