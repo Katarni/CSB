@@ -17,7 +17,24 @@ class Dynamic {
           const std::function<Vector3(Particle, Particle)>& calculateForce)
           : force_(force), particles_(particles), calculateForce_(calculateForce) {}
 
-  virtual void updateParticles(double d_t);
+  virtual void updateParticles(double d_t) {
+    std::vector<Vector3> forces(particles_.size());
+    std::vector<Vector3> particles_forces_array(particles_.size());
+    for (int i = 0; i < particles_.size(); ++i) {
+      for (int j = 0; j < particles_.size(); ++j) {
+        if (i == j) continue;
+
+        particles_forces_array[j] = calculateForce_(particles_[i], particles_[j]);
+      }
+
+      Vector3 particle_force(0, 0, 0);
+      for (const auto& force : particles_forces_array) {
+        particle_force += force;
+      }
+
+      forces[i] = particle_force;
+    }
+  }
 
   void setForce(Vector3 force) {
     force_.setP1(force.getP1());

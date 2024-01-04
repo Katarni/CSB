@@ -4,7 +4,6 @@ project(RelativistycDynamic)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(RelativistycDynamic main.cpp
-        ../includes/Dynamic.cpp
         ../includes/Dynamic.h
         ../includes/Vector3.h
         ../includes/Particle.h
