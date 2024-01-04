@@ -1,5 +1,5 @@
 //
-// Created by Timur Akhmetzjanov on 21.10.2023.
+// Created by Тимур Ахметзянов on 21.10.2023.
 //
 
 #include "Vector3.h"
@@ -39,9 +39,4 @@ Vector3 Vector3::fromStdString(const std::string& string) {
   param /= std::pow(10, cnt_dots);
   vector3.setP3(param);
   return vector3;
-}
-
-std::ostream &operator<<(std::ostream &out, Vector3 vec) {
-  out << "{" << vec.p1_ << "; " << vec.p2_ << "; " << vec.p3_ << "}";
-  return out;
 }
