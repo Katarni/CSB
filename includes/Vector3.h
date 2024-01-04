@@ -20,8 +20,17 @@ class Vector3 {
   inline friend Vector3 operator*(double n, Vector3& v1) {
     return {v1.p1_ * n, v1.p2_ * n, v1.p3_ * n};
   }
+
   inline friend Vector3 operator/(Vector3& v1, double n) {
     return {v1.p1_ / n, v1.p2_ / n, v1.p3_ / n};
+  }
+
+  inline friend Vector3 operator+(const Vector3& vec1, const Vector3& vec2) {
+    return {vec1.p1_ + vec2.p1_, vec1.p2_ + vec2.p2_, vec1.p3_ + vec2.p3_};
+  }
+  inline Vector3& operator+=(const Vector3& other) {
+    *this = *this + other;
+    return *this;
   }
 
   double getP1() const {

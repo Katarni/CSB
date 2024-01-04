@@ -13,14 +13,11 @@ void Dynamic::updateParticles(double d_t) {
       forces[j] = calculateForce_(particles_[i], particles_[j]);
     }
 
-    // считаем сумму сил
-  }
+    Vector3 particle_force(0, 0, 0);
+    for (const auto& force : forces) {
+      particle_force += force;
+    }
 
-  for (int i = 0; i < particles_.size(); ++i) {
-    // рассчитываем скорость
-  }
-
-  for (int i = 0; i < particles_.size(); ++i) {
-    // пересчитываем позицию
+    // считаем скорость и позицию
   }
 }
