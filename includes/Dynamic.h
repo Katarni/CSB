@@ -1,5 +1,5 @@
 //
-// Created by Timur Akhmetzjanov on 20.10.2023.
+// Created by Тимур Ахметзянов on 20.10.2023.
 //
 
 #pragma once
@@ -21,15 +21,24 @@ class Dynamic {
   }
 
   friend std::istream& operator>>(std::istream& in, std::pair<Dynamic&, bool> dynamic);
-  friend std::ostream& operator<<(std::ostream& out, const std::pair<Dynamic, bool>& dynamic);
 
   void push_back(Particle particle) {
     particles_.push_back(particle);
   }
 
+  const Vector3 &getForce() const {
+    return force_;
+  }
+
+  const std::vector<Particle> &getParticles() const {
+    return particles_;
+  }
+
+  void setParticles(const std::vector<Particle> &particles) {
+    particles_ = particles;
+  }
+
  private:
   Vector3 force_;
   std::vector<Particle> particles_;
-
-  static Vector3 calculateForce(Particle first_particle, Particle second_particle);
 };

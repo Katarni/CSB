@@ -1,5 +1,5 @@
 //
-// Created by Timur Akhmetzjanov on 20.10.2023.
+// Created by Тимур Ахметзянов on 20.10.2023.
 //
 
 #include "Dynamic.h"
@@ -10,7 +10,7 @@ void Dynamic::updateParticles(double d_t) {
     for (int j = 0; j < particles_.size(); ++j) {
       if (i == j) continue;
 
-      forces[j] = calculateForce(particles_[i], particles_[j]);
+      // forces[j] = calculateForce(particles_[i], particles_[j]);
     }
 
     // считаем сумму сил
@@ -23,10 +23,6 @@ void Dynamic::updateParticles(double d_t) {
   for (int i = 0; i < particles_.size(); ++i) {
     // пересчитываем позицию
   }
-}
-
-Vector3 Dynamic::calculateForce(Particle target_particle, Particle impacting_particle) {
-  return {0, 0, 0};
 }
 
 std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {
@@ -42,15 +38,4 @@ std::istream &operator>>(std::istream &in, std::pair<Dynamic&, bool> dynamic) {
   }
 
   return in;
-}
-
-std::ostream &operator<<(std::ostream &out, const std::pair<Dynamic, bool>& dynamic) {
-  if (dynamic.first.force_ != Vector3(0, 0, 0)) {
-    out << "Force: " << dynamic.first.force_ << std::endl;
-  }
-  out << "Particles:" << std::endl;
-  for (auto particle : dynamic.first.particles_) {
-    out << particle << std::endl;
-  }
-  return out;
 }
