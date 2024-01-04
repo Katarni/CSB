@@ -14,4 +14,6 @@ class Read {
 
   virtual Particle readParticle(std::istream& in);
   virtual Particle ParticleFromStdString(const std::string& string);
+
+  virtual Dynamic readSystem(std::istream& in, bool read_force, int particles_cnt);
 };

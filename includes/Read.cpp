@@ -51,7 +51,7 @@ Particle Read::readParticle(std::istream &in) {
   Vector3 vel = readVector3(in);
   Vector3 coo = readVector3(in);
   double mass, I;
-  cin >> mass >> I;
+  in >> mass >> I;
   return {vel, coo, mass, I};
 }
 
@@ -117,4 +117,17 @@ Particle Read::ParticleFromStdString(const std::string &string) {
   I /= std::pow(10, cnt_dots);
 
   return {vel, coo, mass, I};
+}
+
+Dynamic Read::readSystem(std::istream &in, bool read_force, int particles_cnt) {
+  Vector3 force(0, 0, 0);
+  if (read_force) {
+    force = readVector3(in);
+  }
+
+  std::vector<Particle> particles(particles_cnt);
+  for (int i = 0; i < particles_cnt; ++i) {
+    particles[i] = readParticle(in);
+  }
+  return {force, particles};
 }
