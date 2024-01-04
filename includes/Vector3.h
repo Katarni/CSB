@@ -5,6 +5,7 @@
 #pragma once
 
 #include "headers.h"
+#include "Read.h"
 
 class Vector3 {
  public:
@@ -44,8 +45,6 @@ class Vector3 {
   void setP3(double p3) {
     p3_ = p3;
   }
-
-  static Vector3 fromStdString(const std::string& string);
 
   friend bool operator==(const Vector3& vec1, const Vector3& vec2) {
     return vec1.p1_ == vec2.p1_ && vec1.p2_ == vec2.p2_ && vec1.p3_ == vec2.p3_;
