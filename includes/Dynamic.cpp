@@ -10,7 +10,7 @@ void Dynamic::updateParticles(double d_t) {
     for (int j = 0; j < particles_.size(); ++j) {
       if (i == j) continue;
 
-      // forces[j] = calculateForce(particles_[i], particles_[j]);
+      forces[j] = calculateForce_(particles_[i], particles_[j]);
     }
 
     // считаем сумму сил

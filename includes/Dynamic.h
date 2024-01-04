@@ -9,10 +9,15 @@
 class Dynamic {
  public:
   Dynamic() = default;
-  explicit Dynamic(const std::vector<Particle>& particles): particles_(particles) {}
-  Dynamic(Vector3 force, const std::vector<Particle>& particles): force_(force), particles_(particles) {}
+  Dynamic(Vector3 force, const std::vector<Particle> &particles)
+          : force_(force), particles_(particles) {
+    calculateForce_ = [](Particle par1, Particle pa2) { return Vector3(); };
+  }
+  Dynamic(Vector3 force, const std::vector<Particle> &particles,
+          const std::function<Vector3(Particle, Particle)>& calculateForce)
+          : force_(force), particles_(particles), calculateForce_(calculateForce) {}
 
-  void updateParticles(double d_t);
+  virtual void updateParticles(double d_t);
 
   void setForce(Vector3 force) {
     force_.setP1(force.getP1());
@@ -36,7 +41,8 @@ class Dynamic {
     particles_ = particles;
   }
 
- private:
+ protected:
   Vector3 force_;
   std::vector<Particle> particles_;
+  std::function<Vector3(Particle, Particle)> calculateForce_;
 };

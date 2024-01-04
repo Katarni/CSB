@@ -129,5 +129,5 @@ Dynamic Read::readSystem(std::istream &in, bool read_force, int particles_cnt) {
   for (int i = 0; i < particles_cnt; ++i) {
     particles[i] = readParticle(in);
   }
-  return {force, particles};
+  return {force, particles, std::function<Vector3(Particle, Particle)>()};
 }
