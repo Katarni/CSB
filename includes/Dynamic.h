@@ -43,6 +43,10 @@ class Dynamic {
     force_.setP3(force.getP3());
   }
 
+  void setCalculateForce(const std::function<Vector3(Particle, Particle)> &calculateForce) {
+    calculateForce_ = calculateForce;
+  }
+
   const Vector3 &getForce() const {
     return force_;
   }

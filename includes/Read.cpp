@@ -131,3 +131,10 @@ Dynamic Read::readSystem(std::istream &in, bool read_force, int particles_cnt) {
   }
   return {force, particles};
 }
+
+Dynamic Read::readSystem(std::istream &in, bool read_force, int particles_cnt,
+                         const std::function<Vector3(Particle, Particle)> &calculateForce) {
+  Dynamic dyn = readSystem(in, read_force, particles_cnt);
+  dyn.setCalculateForce(calculateForce);
+  return dyn;
+}
