@@ -45,7 +45,7 @@ class Dynamic {
     }
   }
 
-  void setForce(Vector3 force) {
+  void setForce(const Vector3& force) {
     force_.setP1(force.getP1());
     force_.setP2(force.getP2());
     force_.setP3(force.getP3());

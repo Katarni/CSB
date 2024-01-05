@@ -50,7 +50,8 @@ Vector3 Read::Vector3FromStdString(const std::string& string) {
 Particle Read::readParticle(std::istream &in) {
   Vector3 vel = readVector3(in);
   Vector3 coo = readVector3(in);
-  double mass, I;
+  double mass;
+  float I;
   in >> mass >> I;
   return {vel, coo, mass, I};
 }
@@ -59,7 +60,8 @@ Particle Read::ParticleFromStdString(const std::string &string) {
   std::string part;
   int cnt_spaces = 0;
   Vector3 vel, coo;
-  double mass, I;
+  double mass;
+  float I;
   bool got_mass;
   int cnt_dots = 0;
   bool is_dot = false;
@@ -108,13 +110,13 @@ Particle Read::ParticleFromStdString(const std::string &string) {
       part.push_back(let);
     } else {
       if (got_mass) {
-        I = I * 10 + let - '0';
+        I = I * 10 + float(let - '0');
       } else {
         mass = mass * 10 + let - '0';
       }
     }
   }
-  I /= std::pow(10, cnt_dots);
+  I /= (float)std::pow(10, cnt_dots);
 
   return {vel, coo, mass, I};
 }

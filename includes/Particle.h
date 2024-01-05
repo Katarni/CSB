@@ -10,7 +10,7 @@
 class Particle {
  public:
   Particle(): velocity_(Vector3()), coordinates_(Vector3()), mass_(0), I_(0) {}
-  Particle(Vector3& vel, Vector3& coo, double mass, double I):
+  Particle(Vector3& vel, Vector3& coo, double mass, float I):
           velocity_(vel), coordinates_(coo), mass_(mass), I_(I) {}
 
   Vector3 &getVelocity() {
@@ -45,7 +45,7 @@ class Particle {
     return mass_;
   }
 
-  double getI() const {
+  float getI() const {
     return I_;
   }
 
@@ -53,5 +53,5 @@ class Particle {
   Vector3 velocity_;
   Vector3 coordinates_;
   double mass_;
-  double I_;
+  float I_;
 };
