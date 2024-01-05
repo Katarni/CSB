@@ -12,7 +12,7 @@ class Dynamic {
   Dynamic() = default;
   Dynamic(Vector3 force, const std::vector<Particle> &particles)
           : force_(force), particles_(particles) {
-    calculateForce_ = [](Particle par1, Particle pa2) { return Vector3(); };
+    calculateForce_ = [](Particle par1, Particle par2) { return Vector3(); };
   }
   Dynamic(Vector3 force, const std::vector<Particle> &particles,
           const std::function<Vector3(Particle, Particle)>& calculateForce)
@@ -28,22 +28,20 @@ class Dynamic {
         particles_forces_array[j] = calculateForce_(particles_[i], particles_[j]);
       }
 
-      Vector3 particle_force = force_;
+      forces[i] = force_;
       for (const auto& force : particles_forces_array) {
-        particle_force += force;
+        forces[i] += force;
       }
-
-      forces[i] = particle_force;
     }
 
     for (int i = 0; i < particles_.size(); ++i) {
-      particles_[i].setVelocity((forces[i] - particles_[i].getVelocity()*(forces[i]*particles_[i].getVelocity()))
-                                * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity())
-                                / (particles_[i].getMass() * kLightSpeed));
-
       particles_[i].setCoordinates({particles_[i].getCoordinates().getP1() + particles_[i].getVelocity().getP1()*d_t,
                                     particles_[i].getCoordinates().getP2() + particles_[i].getVelocity().getP2()*d_t,
                                     particles_[i].getCoordinates().getP3() + particles_[i].getVelocity().getP3()*d_t});
+
+      particles_[i].setVelocity((forces[i] - particles_[i].getVelocity()*(forces[i]*particles_[i].getVelocity()))
+                                * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity())
+                                / (particles_[i].getMass() * kLightSpeed));
     }
   }
 
