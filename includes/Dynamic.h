@@ -41,7 +41,7 @@ class Dynamic {
 
       particles_[i].setVelocity((forces[i] - particles_[i].getVelocity()*(forces[i]*particles_[i].getVelocity()))
                                 * d_t * sqrt(1.0 - particles_[i].getVelocity()*particles_[i].getVelocity())
-                                / (particles_[i].getMass() * kLightSpeed));
+                                / (particles_[i].getMass() * kLightSpeed) + particles_[i].getVelocity());
     }
   }
 
