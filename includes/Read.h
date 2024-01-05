@@ -34,6 +34,7 @@ class Read {
           vector3.setP2(param);
           param = 0;
         }
+        continue;
       }
 
       if (let == '.') {
@@ -67,35 +68,40 @@ class Read {
     Vector3 vel, coo;
     double mass;
     float I;
-    bool got_mass;
+    bool got_mass = false;
     int cnt_dots = 0;
-    bool is_dot = false;
+    bool is_dot = false, just_space = false;
     for (char let : string) {
       if (let == ' ') {
         ++cnt_spaces;
+        just_space = true;
       }
 
-      if (cnt_spaces == 3) {
+      if (cnt_spaces == 3 && just_space) {
         vel = Read().Vector3FromStdString(part);
         part = "";
         is_dot = false;
+        just_space = false;
         cnt_dots = 0;
         continue;
       }
 
-      if (cnt_spaces == 6) {
+      if (cnt_spaces == 6 && just_space) {
         coo = Read().Vector3FromStdString(part);
         part = "";
         is_dot = false;
+        just_space = false;
         cnt_dots = 0;
         continue;
       }
 
-      if (cnt_spaces == 7) {
+      if (cnt_spaces == 7 && just_space) {
         mass /= std::pow(10, cnt_dots);
         cnt_dots = 0;
         is_dot = false;
+        just_space = false;
         got_mass = true;
+        continue;
       }
 
       if (let == '.') {

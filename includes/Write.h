@@ -14,7 +14,7 @@ class Write {
   }
 
   virtual void printParticle(std::ostream& out, const Particle& par) {
-    out << std::fixed << std::setprecision(5);
+    out << std::fixed << std::setprecision(3);
     out << "Velocity: ";
     printVector3(out, par.getVelocity());
     out << " Coordinates: ";
