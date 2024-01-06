@@ -38,6 +38,10 @@ class Dynamic {
     return particles_;
   }
 
+  const std::function<Vector3(Particle, Particle)> &getCalculateForce() const {
+    return calculateForce_;
+  }
+
  protected:
   Vector3 force_;
   std::vector<Particle> particles_;
