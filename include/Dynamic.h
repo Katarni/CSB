@@ -14,15 +14,6 @@ class Dynamic {
           : force_(force), particles_(particles) {
     calculateForce_ = [](Particle par1, Particle par2) { return Vector3(); };
   }
-  Dynamic(Vector3 force, const std::vector<Particle> &particles,
-          const std::function<Vector3(Particle, Particle)>& calculateForce)
-          : force_(force), particles_(particles), calculateForce_(calculateForce) {}
-
-  void setForce(const Vector3& force) {
-    force_.setP1(force.getP1());
-    force_.setP2(force.getP2());
-    force_.setP3(force.getP3());
-  }
 
   void setCalculateForce(const std::function<Vector3(Particle, Particle)> &calculateForce) {
     calculateForce_ = calculateForce;
