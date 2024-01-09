@@ -18,8 +18,6 @@ class Dynamic {
           const std::function<Vector3(Particle, Particle)>& calculateForce)
           : force_(force), particles_(particles), calculateForce_(calculateForce) {}
 
-  virtual void updateParticles(double d_t) = 0;
-
   void setForce(const Vector3& force) {
     force_.setP1(force.getP1());
     force_.setP2(force.getP2());
@@ -40,6 +38,14 @@ class Dynamic {
 
   const std::function<Vector3(Particle, Particle)> &getCalculateForce() const {
     return calculateForce_;
+  }
+
+  Particle& operator[](int i) {
+    return particles_[i];
+  }
+
+  const size_t size() const {
+    return particles_.size();
   }
 
  protected:
