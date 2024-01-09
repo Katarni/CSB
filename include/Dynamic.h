@@ -44,7 +44,7 @@ class Dynamic {
     return particles_[i];
   }
 
-  const size_t size() const {
+  size_t size() const {
     return particles_.size();
   }
 
