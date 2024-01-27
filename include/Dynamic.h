@@ -24,7 +24,7 @@ class Dynamic {
   }
 
   SystemState simulate(int time) {
-    state_ = updater_->updateParticles(state_, time);
+    state_ = updater_->updateParticles(state_, external_f_, f_btw_two_par_, time);
     return state_;
   }
 
