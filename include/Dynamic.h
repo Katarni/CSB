@@ -23,24 +23,11 @@ class Dynamic {
     return force_;
   }
 
-  const std::vector<Particle> &getParticles() const {
-    return particles_;
-  }
-
   const std::function<Vector3(Particle, Particle)> &getCalculateForce() const {
     return calculateForce_;
   }
 
-  Particle& operator[](int i) {
-    return particles_[i];
-  }
-
-  size_t size() const {
-    return particles_.size();
-  }
-
  protected:
   Vector3 force_;
-  std::vector<Particle> particles_;
   std::function<Vector3(Particle, Particle)> calculateForce_;
 };
