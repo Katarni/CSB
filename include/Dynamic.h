@@ -11,15 +11,17 @@
 
 class Dynamic {
  public:
-  Dynamic(VRead* reader, VUpdate* updater, VWrite* writer,
+  Dynamic(std::unique_ptr<VRead> reader,
+          std::unique_ptr<VUpdate> updater,
+          std::unique_ptr<VWrite> writer,
           const std::function<Vector3(Particle)>& external_f,
           const std::function<Vector3(Particle, Particle)>& f_btw_two_par) {
     external_f_ = external_f;
     f_btw_two_par_ = f_btw_two_par;
 
-    reader_ = static_cast<std::unique_ptr<VRead>>(reader);
-    writer_ = static_cast<std::unique_ptr<VWrite>>(writer);
-    updater_ = static_cast<std::unique_ptr<VUpdate>>(updater);
+    reader_ = std::move(reader);
+    updater_ = std::move(updater);
+    writer_ = std::move(writer);
   }
 
   void simulate(int time) {
