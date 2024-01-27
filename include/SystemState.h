@@ -7,12 +7,12 @@
 
 
 class SystemState {
-  SystemState(double time, const std::vector<Particle>& particles): time_(time), particles_(particles) {}
-
  public:
   const std::vector<Particle> &getParticles() const {
     return particles_;
   }
+
+  SystemState(double time, const std::vector<Particle>& particles): time_(time), particles_(particles) {}
 
  private:
   double time_;

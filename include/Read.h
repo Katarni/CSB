@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Dynamic.h"
+#include "SystemState.h"
 
 
 class Read {
@@ -13,5 +13,5 @@ class Read {
 
   virtual Particle readParticle() = 0;
 
-  virtual Dynamic readSystem(int particles_cnt) = 0;
+  virtual SystemState readSystem(int particles_cnt) = 0;
 };
