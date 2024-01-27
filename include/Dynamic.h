@@ -23,6 +23,11 @@ class Dynamic {
     updater_ = static_cast<std::unique_ptr<VUpdate>>(updater);
   }
 
+  SystemState simulate(int time) {
+    state_ = updater_->updateParticles(state_, time);
+    return state_;
+  }
+
  protected:
   SystemState state_;
 
