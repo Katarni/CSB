@@ -6,6 +6,7 @@
 
 #include "SystemState.h"
 
+
 class VUpdate {
  public:
   virtual SystemState updateParticles(const SystemState& dyn,
