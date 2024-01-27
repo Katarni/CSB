@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "SystemState.h"
 #include "VRead.h"
 #include "VUpdate.h"
 #include "VWrite.h"
