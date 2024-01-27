@@ -22,9 +22,9 @@ class Dynamic {
     updater_ = static_cast<std::unique_ptr<VUpdate>>(updater);
   }
 
-  SystemState simulate(int time) {
+  void simulate(int time) {
     state_ = updater_->updateParticles(state_, external_f_, f_btw_two_par_, time);
-    return state_;
+    writer_->printSystemState(state_);
   }
 
  protected:

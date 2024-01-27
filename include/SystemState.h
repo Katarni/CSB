@@ -16,6 +16,18 @@ class SystemState {
     return particles_;
   }
 
+  double getTime() const {
+    return time_;
+  }
+
+  void setTime(double time) {
+    time_ = time;
+  }
+
+  void setParticles(const std::vector<Particle> &particles) {
+    particles_ = particles;
+  }
+
  private:
   double time_;
   std::vector<Particle> particles_;
