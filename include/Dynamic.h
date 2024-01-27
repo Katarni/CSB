@@ -5,15 +5,31 @@
 #pragma once
 
 #include "SystemState.h"
-#include "Read.h"
-#include "Update.h"
-#include "Write.h"
+#include "VRead.h"
+#include "VUpdate.h"
+#include "VWrite.h"
 
 
 class Dynamic {
  public:
+  Dynamic(VRead* reader, VUpdate* updater, VWrite* writer,
+          const std::function<Vector3(Particle)>& external_f,
+          const std::function<Vector3(Particle, Particle)>& f_btw_two_par) {
+    external_f_ = external_f;
+    f_btw_two_par_ = f_btw_two_par;
+
+    reader_ = static_cast<std::unique_ptr<VRead>>(reader);
+    writer_ = static_cast<std::unique_ptr<VWrite>>(writer);
+    updater_ = static_cast<std::unique_ptr<VUpdate>>(updater);
+  }
 
  protected:
+  SystemState state_;
+
   std::function<Vector3(Particle)> external_f_;
-  std::function<Vector3(Particle, Particle)> calculateForce_;
+  std::function<Vector3(Particle, Particle)> f_btw_two_par_;
+
+  std::unique_ptr<VRead> reader_;
+  std::unique_ptr<VWrite> writer_;
+  std::unique_ptr<VUpdate> updater_;
 };

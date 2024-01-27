@@ -7,7 +7,7 @@
 #include "SystemState.h"
 
 
-class Write {
+class VWrite {
  public:
   virtual void printVector3(const Vector3& vec) = 0;
 

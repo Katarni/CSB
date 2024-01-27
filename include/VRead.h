@@ -7,7 +7,7 @@
 #include "SystemState.h"
 
 
-class Read {
+class VRead {
  public:
   virtual Vector3 readVector3() = 0;
 
