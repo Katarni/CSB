@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include(@CMAKE_INSTALL_PREFIX@/cmake/CSBlibExport.cmake)
+set_and_check(CSB_DIR @CMAKE_INSTALL_PREFIX@)
