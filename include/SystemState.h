@@ -28,6 +28,13 @@ class SystemState {
     particles_ = particles;
   }
 
+  Particle& operator[](int idx) {
+    if (idx >= particles_.size() || idx < 0) {
+      throw std::runtime_error("segmentation fault");
+    }
+    return particles_[idx];
+  }
+
  private:
   double time_;
   std::vector<Particle> particles_;
