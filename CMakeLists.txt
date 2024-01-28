@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(CSB VERSION 0.4)
+project(CSBlib VERSION 0.4)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -9,6 +9,13 @@ target_include_directories(CSBlib INTERFACE
         $<INSTALL_INTERFACE:include>)
 
 set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/Dynamic.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/VUpdate.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/VWrite.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/VRead.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/SystemState.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/Particle.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/Vector3.h")
+set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/headers.h")
 
 install(TARGETS CSBlib
         EXPORT CSBlibExport
