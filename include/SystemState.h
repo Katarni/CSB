@@ -30,7 +30,7 @@ class SystemState {
 
   Particle& operator[](int idx) {
     if (idx >= particles_.size() || idx < 0) {
-      throw std::runtime_error("segmentation fault");
+      throw std::runtime_error("SIGSEGV");
     }
     return particles_[idx];
   }
