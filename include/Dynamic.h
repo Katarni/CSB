@@ -24,8 +24,11 @@ class Dynamic {
     writer_ = std::move(writer);
   }
 
-  void simulate(int time) {
-    state_ = updater_->updateParticles(state_, external_f_, f_btw_two_par_, time);
+  void simulate(int cnt_times, double time, int cnt_particles) {
+    state_ = reader_->readSystem(cnt_particles);
+    for (int board = 0; board < cnt_times; ++board) {
+      state_ = updater_->updateParticles(state_, external_f_, f_btw_two_par_, time / cnt_times);
+    }
     writer_->printSystemState(state_);
   }
 
