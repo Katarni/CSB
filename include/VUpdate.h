@@ -9,7 +9,7 @@
 
 class VUpdate {
  public:
-  virtual SystemState updateParticles(const SystemState& dyn,
+  virtual SystemState updateParticles(const SystemState& state,
                                       const std::function<Vector3(Particle)>& external_f,
                                       const std::function<Vector3(Particle, Particle)>& f_btw_two_par,
                                       double time) = 0;

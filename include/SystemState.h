@@ -30,7 +30,7 @@ class SystemState {
 
   Particle& operator[](int idx) {
     if (idx >= particles_.size() || idx < 0) {
-      throw std::runtime_error("SIGSEGV");
+      throw std::runtime_error("Array of particles in SystemState.h out of range");
     }
     return particles_[idx];
   }

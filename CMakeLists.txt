@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 project(CSB VERSION 0.4)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 
 add_library(CSBlib INTERFACE)
 target_include_directories(CSBlib INTERFACE
