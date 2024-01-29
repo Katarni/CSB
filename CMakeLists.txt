@@ -15,7 +15,6 @@ set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/VRead.h")
 set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/SystemState.h")
 set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/Particle.h")
 set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/Vector3.h")
-set_target_properties(CSBlib PROPERTIES PUBLIC_HEADER "include/headers.h")
 
 install(TARGETS CSBlib
         EXPORT CSBlibExport
