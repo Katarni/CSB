@@ -13,3 +13,5 @@
 #include <set>
 #include <functional>
 #include <utility>
+
+const double kLightSpeed = 1.0;
