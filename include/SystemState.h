@@ -36,7 +36,7 @@ class SystemState {
   }
 
   size_t size() const {
-    return particles.size();
+    return particles_.size();
   }
 
  private:
