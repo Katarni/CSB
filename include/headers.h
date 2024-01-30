@@ -14,4 +14,4 @@
 #include <functional>
 #include <utility>
 
-const double kLightSpeed = 1.0;
+double kLightSpeed = 1.0;
