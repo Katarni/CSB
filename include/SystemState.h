@@ -28,14 +28,14 @@ class SystemState {
     particles_ = particles;
   }
 
-  Particle& operator[](int idx) const {
+  Particle& operator[](int idx) {
     if (idx >= particles_.size() || idx < 0) {
       throw std::runtime_error("Array of particles in SystemState.h out of range");
     }
     return particles_[idx];
   }
 
-  const size_t size() const {
+  size_t size() const {
     return particles.size();
   }
 
