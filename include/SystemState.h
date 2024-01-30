@@ -35,6 +35,10 @@ class SystemState {
     return particles_[idx];
   }
 
+  const size_t size() const {
+    return particles.size();
+  }
+
  private:
   double time_;
   std::vector<Particle> particles_;
