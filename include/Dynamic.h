@@ -27,7 +27,7 @@ class Dynamic {
   void simulate(int num_of_iterations, double time, int num_of_particles) {
     state_ = reader_->readSystem(num_of_particles);
     for (int board = 0; board < num_of_iterations; ++board) {
-      state_ = updater_->updateParticles(state_, external_f_, f_btw_two_par_, time / num_of_iterations);
+      state_ = updater_->updateSystem(state_, external_f_, f_btw_two_par_, time / num_of_iterations);
     }
     writer_->printSystemState(state_);
   }
