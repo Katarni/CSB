@@ -1,1 +1,1 @@
-# CSB library
+# CSB framework
