@@ -24,12 +24,29 @@ class Dynamic {
     writer_ = std::move(writer);
   }
 
-  void simulate(int num_of_iterations, double time, int num_of_particles) {
+  void simulate(int num_of_iterations, double time, size_t num_of_particles, bool save_states) {
     state_ = reader_->readSystem(num_of_particles);
+
+    std::vector<SystemState> states(0);
+    if (save_states) {
+      states.reserve(num_of_iterations);
+    }
+
     for (int board = 0; board < num_of_iterations; ++board) {
       state_ = updater_->updateSystem(state_, external_f_, f_btw_two_par_, time / num_of_iterations);
+
+      if (save_states) {
+        states.emplace_back(state_);
+      }
     }
-    writer_->printSystemState(state_);
+
+    if (save_states) {
+      for (int i = 0; i < num_of_particles; ++i) {
+        writer_->printSystemState(states[i]);
+      }
+    } else {
+      writer_->printSystemState(state_);
+    }
   }
 
  protected:
