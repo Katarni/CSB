@@ -15,6 +15,11 @@ set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/VRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/SystemState.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/Particle.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/Vector3.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/ReadDat.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/ReadStandard.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/WriteDat.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/WriteStandard.h")
+
 
 install(TARGETS CSB
         EXPORT CSBExport
