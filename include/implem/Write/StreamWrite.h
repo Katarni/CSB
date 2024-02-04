@@ -5,7 +5,13 @@
 
 class StreamWrite: public VWrite {
  public:
-  StreamWrite(std::ostream& ostream): ostream_(ostream) {}
+  StreamWrite(const StreamWrite& write) {
+    ostream_.copyfmt(write.ostream_);
+  }
+
+  StreamWrite(const std::ostream& ostream) {
+    ostream_.copyfmt(ostream);
+  }
 
   void printVector3(const Vector3& vec) override {
     ostream_ << vec.getP1() << ' ' << vec.getP2() << ' ' << vec.getP3() << ' ';
@@ -25,5 +31,5 @@ class StreamWrite: public VWrite {
   }
 
  private:
-  std::ostream ostream_;
+  std::ostream ostream_{nullptr};
 };

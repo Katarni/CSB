@@ -9,7 +9,13 @@
 
 class StreamRead: public VRead {
  public:
-  StreamRead(std::istream& istream): istream_(istream) {}
+  StreamRead(const StreamRead& read) {
+    istream_.copyfmt(read.istream_);
+  }
+
+  StreamRead(const std::istream& istream) {
+    istream_.copyfmt(istream);
+  }
 
   Vector3 readVector3() override {
     double p1, p2, p3;
@@ -37,5 +43,5 @@ class StreamRead: public VRead {
   }
 
  private:
-  std::istream istream_;
+  std::istream istream_{nullptr};
 };
