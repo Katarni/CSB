@@ -7,11 +7,13 @@
 #include "../../VRead.h"
 
 
-class StandardRead: public VRead {
+class StreamRead: public VRead {
  public:
+  StreamRead(std::istream& istream): istream_(istream) {}
+
   Vector3 readVector3() override {
     double p1, p2, p3;
-    std::cin >> p1 >> p2 >> p3;
+    istream_ >> p1 >> p2 >> p3;
     return {p1, p2, p3};
   }
 
@@ -20,17 +22,20 @@ class StandardRead: public VRead {
     Vector3 coo = readVector3();
     double mass;
     float I;
-    std::cin >> mass >> I;
+    istream_ >> mass >> I;
     return {vel, coo, mass, I};
   }
 
   SystemState readSystem(int particles_cnt) override {
     double time;
-    std::cin >> time;
+    istream_ >> time;
     std::vector<Particle> particles(particles_cnt);
     for (int i = 0; i < particles_cnt; ++i) {
       particles[i] = readParticle();
     }
     return {time, particles};
   }
+
+ private:
+  std::istream istream_;
 };
