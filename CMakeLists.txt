@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(CSB VERSION 0.4)
+project(CSB VERSION 0.5)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -19,6 +19,8 @@ set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/FileRead
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/StreamRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/FileWrite.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/StreamWrite.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/StdCinRead.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/StdCoutWrite.h")
 
 
 install(TARGETS CSB
