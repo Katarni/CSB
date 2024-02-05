@@ -27,7 +27,7 @@ set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Update/NoColl
 install(TARGETS CSB
         EXPORT CSBExport
         PUBLIC_HEADER DESTINATION include
-        INCLUDES DESTINATION include) #Needed for proper EXPORT generation
+        INCLUDES DESTINATION include)
 
 include(CMakePackageConfigHelpers)
 
