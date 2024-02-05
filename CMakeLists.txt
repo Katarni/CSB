@@ -21,6 +21,7 @@ set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/FileWri
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/StreamWrite.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/StdCinRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/StdCoutWrite.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Update/NoCollisionsUpdate.h")
 
 
 install(TARGETS CSB
