@@ -7,9 +7,9 @@
 #include "../../VWrite.h"
 
 
-class DatWrite: public VWrite {
+class FileWrite: public VWrite {
  public:
-  DatWrite(const std::string& file_path) {
+  FileWrite(const std::string& file_path) {
     ostream.open(file_path);
   }
 

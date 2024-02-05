@@ -7,9 +7,9 @@
 #include "../../VRead.h"
 
 
-class DatRead: public VRead {
+class FileRead: public VRead {
  public:
-  DatRead(const std::string& file_path) {
+  FileRead(const std::string& file_path) {
     istream_.open(file_path);
   }
 
