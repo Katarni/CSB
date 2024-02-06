@@ -3,7 +3,8 @@ project(CSB VERSION 0.5)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(CSB INTERFACE)
+add_library(CSB INTERFACE
+        include/functionsOperators.h)
 target_include_directories(CSB INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
