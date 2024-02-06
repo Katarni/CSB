@@ -3,8 +3,7 @@ project(CSB VERSION 0.5)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(CSB INTERFACE
-        include/functionsOperators.h)
+add_library(CSB INTERFACE)
 target_include_directories(CSB INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
@@ -16,6 +15,7 @@ set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/VRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/SystemState.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/Particle.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/Vector3.h")
+set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/functions.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/FileRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Read/StreamRead.h")
 set_target_properties(CSB PROPERTIES PUBLIC_HEADER "include/implem/Write/FileWrite.h")
