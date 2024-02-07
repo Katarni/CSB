@@ -49,6 +49,10 @@ class Particle {
     return I_;
   }
 
+  static bool isNormalVelocity(const Particle& particle) {
+    return velocity_.getP1() >= kLightSpeed || velocity_.getP2() >= kLightSpeed || velocity_.getP3() >= kLightSpeed;
+  }
+
  protected:
   Vector3 velocity_;
   Vector3 coordinates_;
