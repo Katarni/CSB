@@ -32,8 +32,20 @@ class Dynamic {
       states.reserve(num_of_iterations);
     }
 
+    for (auto part : state_.getParticles()) {
+      if (!part.isNormalVelocity()) {
+        throw std::runtime_error("The speed of a particle is greater than the speed of light");
+      }
+    }
+
     for (int board = 0; board < num_of_iterations; ++board) {
       state_ = updater_->updateSystem(state_, external_f_, f_btw_two_par_, time / num_of_iterations);
+
+      for (auto part : state_.getParticles()) {
+        if (!part.isNormalVelocity()) {
+          throw std::runtime_error("The speed of a particle is greater than the speed of light");
+        }
+      }
 
       if (save_states) {
         states.emplace_back(state_);
