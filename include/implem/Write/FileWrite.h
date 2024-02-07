@@ -10,26 +10,30 @@
 class FileWrite: public VWrite {
  public:
   FileWrite(const std::string& file_path) {
-    ostream.open(file_path);
+    ostream_.open(file_path);
+  }
+
+  FileWrite(const std::ofstream& ostream) {
+    ostream_.copyfmt(ostream)
   }
 
   void printVector3(const Vector3& vec) override {
-    ostream << vec.getP1() << ' ' << vec.getP2() << ' ' << vec.getP3() << ' ';
+    ostream_ << vec.getP1() << ' ' << vec.getP2() << ' ' << vec.getP3() << ' ';
   }
 
   void printParticle(const Particle& par) override {
     printVector3(par.getVelocity());
     printVector3(par.getCoordinates());
-    ostream << std::endl;
+    ostream_ << std::endl;
   }
 
   void printSystemState(const SystemState& state) override {
-    ostream << std::fixed << std::setprecision(13);
+    ostream_ << std::fixed << std::setprecision(13);
     for (auto particle : state.getParticles()) {
       printParticle(particle);
     }
   }
  private:
 
-  std::ofstream ostream;
+  std::ofstream ostream_;
 };

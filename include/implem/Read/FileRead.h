@@ -13,8 +13,8 @@ class FileRead: public VRead {
     istream_.open(file_path);
   }
 
-  FileRead(const std::ifstream& ifstream) {
-    istream_.copyfmt(ifstream);
+  FileRead(const std::ifstream& istream) {
+    istream_.copyfmt(istream);
   }
 
   Vector3 readVector3() override {
