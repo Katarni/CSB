@@ -12,6 +12,12 @@ class Particle {
   Particle(): velocity_(Vector3()), coordinates_(Vector3()), mass_(0), I_(0) {}
   Particle(Vector3& vel, Vector3& coo, double mass, float I):
           velocity_(vel), coordinates_(coo), mass_(mass), I_(I) {}
+  Particle(const Particle& particle) {
+    velocity_ = particle.velocity_;
+    coordinates_ = particle.coordinates_;
+    mass_ = particle.mass_;
+    I_ = particle.I_;
+  }
 
   Vector3 &getVelocity() {
     return velocity_;
