@@ -12,6 +12,10 @@ class SystemState {
  public:
   SystemState(): time_(0), particles_(std::vector<Particle>(0)) {};
   SystemState(double time, const std::vector<Particle>& particles): time_(time), particles_(particles) {}
+  SystemState(const SystemState& state) {
+    time_ = state.time_;
+    particles_ = state.particles_;
+  }
 
   const std::vector<Particle> &getParticles() const {
     return particles_;
