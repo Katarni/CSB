@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Particle.h"
-#include "functions.h"
+#include "forces.h"
 
 
 class SystemState {
