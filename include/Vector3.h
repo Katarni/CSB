@@ -11,6 +11,11 @@ class Vector3 {
  public:
   Vector3(): p1_(0), p2_(0), p3_(0) {};
   Vector3(double p1, double p2, double p3): p1_(p1), p2_(p2), p3_(p3) {};
+  Vector3(const Vector3& vector) {
+    p1_ = vector.p1_;
+    p2_ = vector.p2_;
+    p3_ = vector.p3_;
+  }
 
   inline friend double operator*(const Vector3& v1, const Vector3& v2) {
     return v1.p1_ * v2.p1_ + v1.p2_ * v2.p2_ + v1.p3_ * v2.p3_;
