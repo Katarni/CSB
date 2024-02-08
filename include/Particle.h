@@ -27,10 +27,6 @@ class Particle {
     velocity_.setP3(velocity.getP3());
   }
 
-  Vector3 &getCoordinates() {
-    return coordinates_;
-  }
-
   const Vector3 &getCoordinates() const {
     return coordinates_;
   }
