@@ -24,13 +24,14 @@ class FileWrite: public VWrite {
   void printParticle(const Particle& par) override {
     printVector3(par.getVelocity());
     printVector3(par.getCoordinates());
-    ostream_ << std::endl;
+    ostream_ << par.getMass() << ' ' << par.getI();
   }
 
   void printSystemState(const SystemState& state) override {
     ostream_ << std::fixed << std::setprecision(13);
     for (auto particle : state.getParticles()) {
       printParticle(particle);
+      ostream_ << std::endl;
     }
   }
  private:

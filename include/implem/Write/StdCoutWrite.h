@@ -16,13 +16,14 @@ class StdCoutWrite: public VWrite {
   void printParticle(const Particle& par) override {
     printVector3(par.getVelocity());
     printVector3(par.getCoordinates());
-    std::cout << par.getMass() << ' ' << par.getI() << std::endl;
+    std::cout << par.getMass() << ' ' << par.getI();
   }
 
   void printSystemState(const SystemState& state) override {
     std::cout << std::fixed << std::setprecision(13);
     for (auto particle : state.getParticles()) {
       printParticle(particle);
+      std::cout << std::endl;
     }
   }
 };
