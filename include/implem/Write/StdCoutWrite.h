@@ -27,4 +27,3 @@ class StdCoutWrite: public VWrite {
     }
   }
 };
-

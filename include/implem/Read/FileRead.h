@@ -46,4 +46,3 @@ class FileRead: public VRead {
 
   std::ifstream istream_;
 };
-
