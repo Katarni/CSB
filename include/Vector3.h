@@ -9,26 +9,31 @@
 
 class Vector3 {
  public:
-  Vector3(): x_(0), y_(0), z_(0) {};
-  Vector3(double x, double y, double z): x_(x), y_(y), z_(z) {};
+  Vector3(): p1_(0), p2_(0), p3_(0) {};
+  Vector3(double p1, double p2, double p3): p1_(p1), p2_(p2), p3_(p3) {};
+  Vector3(const Vector3& vector) {
+    p1_ = vector.p1_;
+    p2_ = vector.p2_;
+    p3_ = vector.p3_;
+  }
 
   inline friend double operator*(const Vector3& v1, const Vector3& v2) {
-    return v1.x_ * v2.x_ + v1.y_ * v2.y_ + v1.z_ * v2.z_;
+    return v1.p1_ * v2.p1_ + v1.p2_ * v2.p2_ + v1.p3_ * v2.p3_;
   }
 
   inline friend Vector3 operator*(const Vector3& v1, double n) {
-    return Vector3(v1.x_ * n, v1.y_ * n, v1.z_ * n);
+    return Vector3(v1.p1_ * n, v1.p2_ * n, v1.p3_ * n);
   }
   inline friend Vector3 operator*(double n, const Vector3& v1) {
-    return Vector3(v1.x_ * n, v1.y_ * n, v1.z_ * n);
+    return Vector3(v1.p1_ * n, v1.p2_ * n, v1.p3_ * n);
   }
 
   inline friend Vector3 operator/(const Vector3& v1, double n) {
-    return Vector3(v1.x_ / n, v1.y_ / n, v1.z_ / n);
+    return Vector3(v1.p1_ / n, v1.p2_ / n, v1.p3_ / n);
   }
 
   inline friend Vector3 operator+(const Vector3& vec1, const Vector3& vec2) {
-    return Vector3(vec1.x_ + vec2.x_, vec1.y_ + vec2.y_, vec1.z_ + vec2.z_);
+    return Vector3(vec1.p1_ + vec2.p1_, vec1.p2_ + vec2.p2_, vec1.p3_ + vec2.p3_);
   }
   inline Vector3& operator+=(const Vector3& other) {
     *this = *this + other;
@@ -36,32 +41,37 @@ class Vector3 {
   }
 
   inline friend Vector3 operator-(const Vector3& vec1, const Vector3& vec2) {
-    return Vector3(vec1.x_ - vec2.x_, vec1.y_ - vec2.y_, vec1.z_ - vec2.z_);
+    return Vector3(vec1.p1_ - vec2.p1_, vec1.p2_ - vec2.p2_, vec1.p3_ - vec2.p3_);
   }
 
-  double getX() const {
-    return x_;
-  }
-  void setX(double x) {
-    x_ = x;
+  inline Vector3& operator-=(const Vector3& other) {
+    *this = *this - other;
+    return *this;
   }
 
-  double getY() const {
-    return y_;
+  double getP1() const {
+    return p1_;
   }
-  void setY(double y) {
-    y_ = y;
+  void setP1(double p1) {
+    p1_ = p1;
   }
 
-  double getZ() const {
-    return z_;
+  double getP2() const {
+    return p2_;
   }
-  void setZ(double z) {
-    z_ = z;
+  void setP2(double p2) {
+    p2_ = p2;
+  }
+
+  double getP3() const {
+    return p3_;
+  }
+  void setP3(double p3) {
+    p3_ = p3;
   }
 
   friend bool operator==(const Vector3& vec1, const Vector3& vec2) {
-    return vec1.x_ == vec2.x_ && vec1.y_ == vec2.y_ && vec1.z_ == vec2.z_;
+    return vec1.p1_ == vec2.p1_ && vec1.p2_ == vec2.p2_ && vec1.p3_ == vec2.p3_;
   }
 
   friend bool operator!=(const Vector3& vec1, const Vector3& vec2) {
@@ -69,5 +79,5 @@ class Vector3 {
   }
 
  protected:
-  double x_, y_, z_;
+  double p1_, p2_, p3_;
 };
