@@ -15,3 +15,4 @@
 #include <utility>
 
 const double kLightSpeed = 1.0;
+const double kE = 2.718281828459045235;

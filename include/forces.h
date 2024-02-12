@@ -7,7 +7,7 @@
 #include "Particle.h"
 
 std::function<Vector3(Particle, Particle)> getYukawaPotential(double v, double gamma) {
-  return [&v, &gamma](Particle par1, Particle par2) {
+  return [&v, &gamma](const Particle& par1, const Particle& par2) {
     Vector3 r_vec = par1.getCoordinates() - par2.getCoordinates();
     double mod_r = sqrt(r_vec.getP1()*r_vec.getP1() +
                         r_vec.getP2()*r_vec.getP2() +
