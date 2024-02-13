@@ -25,3 +25,14 @@ std::function<Vector3(Particle, Particle)> getYukawaForce(double v, double gamma
     return Vector3(f_x_part1 * f_x_part2, f_y_part1 * f_y_part2, f_z_part1 * f_z_part2);
   };
 }
+
+std::function<Vector3(Particle, Particle)> getCoulombForce() {
+  return [](const Particle& par1, const Particle& par2) {
+    Vector3 r_vec = par1.getCoordinates() - par2.getCoordinates();
+    double mod_r = sqrt(r_vec.getP1()*r_vec.getP1() +
+                        r_vec.getP2()*r_vec.getP2() +
+                        r_vec.getP3()*r_vec.getP3());
+
+    return r_vec * kKQ * sng(par1.getI()) * kKQ * sng(par2.getI()) / (mod_r * mod_r * mod_r);
+  };
+}

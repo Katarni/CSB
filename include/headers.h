@@ -16,3 +16,10 @@
 
 const double kLightSpeed = 1.0;
 const double kE = 2.718281828459045235;
+const double kKQ = 1.19996;
+
+double sng(double num) {
+  if (num > 0) return 1;
+  if (num < 0) return -1;
+  return 0;
+}
