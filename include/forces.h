@@ -37,7 +37,7 @@ std::function<Vector3(Particle, Particle)> getCoulombForce() {
   };
 }
 
-std::function<Vector3(Particle)> getElectricForce(const Vector3& E) {
+std::function<Vector3(Particle)> getUniformElectricForce(const Vector3& E) {
   return [&E](const Particle& par) {
     double gamma = 1 / sqrt(1 - par.getVelocity()*par.getVelocity());
     double G = gamma * gamma / (gamma + 1);
