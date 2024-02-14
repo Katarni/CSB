@@ -36,3 +36,11 @@ std::function<Vector3(Particle, Particle)> getCoulombForce() {
     return r_vec * kKQ * sng(par1.getI()) * kKQ * sng(par2.getI()) / (mod_r * mod_r * mod_r);
   };
 }
+
+std::function<Vector3(Particle)> getElectricForce(const Vector3& E) {
+  return [&E](const Particle& par) {
+    double gamma = 1 / sqrt(1 - par.getVelocity()*par.getVelocity());
+    double G = gamma * gamma / (gamma + 1);
+    return E * gamma - G * par.getVelocity() * (par.getVelocity() * E);
+  };
+}
