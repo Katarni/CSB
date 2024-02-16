@@ -7,11 +7,15 @@
 #include "Particle.h"
 
 std::function<Vector3(Particle, Particle)> getYukawaForce(double v, double gamma) {
-  return [&v, &gamma](const Particle& par1, const Particle& par2) {
+  return [v, gamma](const Particle& par1, const Particle& par2) {
     Vector3 r_vec = par1.getCoordinates() - par2.getCoordinates();
     double mod_r = sqrt(r_vec.getP1()*r_vec.getP1() +
                         r_vec.getP2()*r_vec.getP2() +
                         r_vec.getP3()*r_vec.getP3());
+
+    if (r_mod == 0) {
+      r_mod = kMinDis;
+    }
 
     double f_x_part1 = v / (mod_r* std::pow(kE, mod_r/gamma));
     double f_x_part2 = (mod_r + gamma) * r_vec.getP1() / (gamma * mod_r * mod_r);
@@ -38,7 +42,7 @@ std::function<Vector3(Particle, Particle)> getCoulombForce() {
 }
 
 std::function<Vector3(Particle)> getUniformElectricForce(const Vector3& E) {
-  return [&E](const Particle& par) {
+  return [E](const Particle& par) {
     double gamma = 1 / sqrt(1 - par.getVelocity()*par.getVelocity());
     double G = gamma * gamma / (gamma + 1);
     return E * gamma - G * par.getVelocity() * (par.getVelocity() * E);
