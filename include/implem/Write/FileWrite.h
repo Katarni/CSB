@@ -14,7 +14,7 @@ class FileWrite: public VWrite {
   }
 
   FileWrite(const std::ofstream& ostream) {
-    ostream_.copyfmt(ostream)
+    ostream_.copyfmt(ostream);
   }
 
   void printVector3(const Vector3& vec) override {
