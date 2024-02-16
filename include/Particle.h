@@ -52,9 +52,9 @@ class Particle {
   }
 
   bool isNormalVelocity() {
-    return velocity_.getP1() < kLightSpeed &&
-            velocity_.getP2() < kLightSpeed &&
-            velocity_.getP3() < kLightSpeed;
+    return fabs(velocity_.getP1()) < kLightSpeed &&
+            fabs(velocity_.getP2()) < kLightSpeed &&
+            fabs(velocity_.getP3()) < kLightSpeed;
   }
 
  protected:

@@ -13,8 +13,8 @@ std::function<Vector3(Particle, Particle)> getYukawaForce(double v, double gamma
                         r_vec.getP2()*r_vec.getP2() +
                         r_vec.getP3()*r_vec.getP3());
 
-    if (r_mod == 0) {
-      r_mod = kMinDis;
+    if (mod_r == 0) {
+      mod_r = kMinDis;
     }
 
     double f_x_part1 = v / (mod_r* std::pow(kE, mod_r/gamma));
