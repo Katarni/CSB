@@ -53,8 +53,8 @@ class Dynamic {
     }
 
     if (save_states) {
-      for (int i = 0; i < num_of_particles; ++i) {
-        writer_->printSystemState(states[i]);
+      for (const auto & state : states) {
+        writer_->printSystemState(state);
       }
     } else {
       writer_->printSystemState(state_);

@@ -13,5 +13,5 @@ class VRead {
 
   virtual Particle readParticle() = 0;
 
-  virtual SystemState readSystem(int num_of_particles) = 0;
+  virtual SystemState readSystem(size_t num_of_particles) = 0;
 };

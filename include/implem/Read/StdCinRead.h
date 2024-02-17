@@ -23,7 +23,7 @@ class StdCinRead: public VRead {
     return {vel, coo, mass, I};
   }
 
-  SystemState readSystem(int particles_cnt) override {
+  SystemState readSystem(size_t particles_cnt) override {
     double time;
     std::cin >> time;
     std::vector<Particle> particles(particles_cnt);

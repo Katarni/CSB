@@ -32,7 +32,7 @@ class FileRead: public VRead {
     return {vel, coo, mass, I};
   }
 
-  SystemState readSystem(int particles_cnt) override {
+  SystemState readSystem(size_t particles_cnt) override {
     double time;
     istream_ >> time;
     std::vector<Particle> particles(particles_cnt);
